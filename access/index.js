@@ -2,7 +2,7 @@ let $ = document.querySelector.bind(document);
 let $$ = document.querySelectorAll.bind(document);
 let number = 0; 
 let numBox = $$(".boxNum");
-let Mudic = $('.music');
+let Music = $('.music');
 let moneyWrapper = $(".money"); 
 let playBtn = $('.playBtn');
 let count = 0; 
@@ -39,6 +39,9 @@ const app = {
 
     handle: function(){ 
 playBtn.onclick = function(){
+    numBox[0].innerHTML = ""; 
+    numBox[1].innerHTML = ""; 
+    numBox[2].innerHTML = ""; 
 setTimeout (()=> {
    setInterval( app.updateNumber(), 1000);
    let num1 = app.generateRandomNumber();
@@ -55,10 +58,11 @@ setTimeout (()=> {
         
 
         numBox[2].innerText = num3; 
+        Music.play();
 
         if (number == 777){
             money = money + 20000;
-            
+
         }
             
      },1000)
@@ -78,6 +82,7 @@ setTimeout (()=> {
     start:function(){
         this.disPlay(); 
         this.handle();
+      
         
         
         
