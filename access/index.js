@@ -1,5 +1,6 @@
 let $ = document.querySelector.bind(document); 
 let $$ = document.querySelectorAll.bind(document);
+let CountPlay = 0; 
 let number = 0; 
 let numBox = $$(".boxNum");
 let Music = $('.music');
@@ -19,6 +20,15 @@ const app = {
 // Tạo số
     generateRandomNumber : function (){
         let RandomValue = Math.random(); 
+
+        if (CountPlay == 30){
+            RandomValue = 0.8; 
+            if (RandomValue == 0.8){
+                return 7; 
+            }
+            CountPlay = 0; 
+        }
+
         if (RandomValue <= 0.000001 ){
             return 7; 
         }
@@ -28,6 +38,9 @@ const app = {
         else {
             return Math.floor(Math.random() * 10); 
         }
+
+
+      
         
     }, 
 
@@ -59,11 +72,14 @@ setTimeout (()=> {
 
         numBox[2].innerText = num3; 
         Music.play();
+        CountPlay++; 
 
         if (number == 777){
             money = money + 20000;
 
         }
+
+      
             
      },1000)
             
