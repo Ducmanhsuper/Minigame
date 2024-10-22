@@ -30,7 +30,7 @@ const app = {
             CountPlay = 0; 
         }
 
-        if (RandomValue <= 0.0000000000001 ){
+        if (RandomValue <= 1 ){
             return 7; 
         }
         else {
@@ -73,7 +73,8 @@ setTimeout (()=> {
         CountPlay++; 
 
         if (number == 777){
-            money = money + 20000;
+            money = money + 100000;
+            app.disPlay();
 
         }
 
