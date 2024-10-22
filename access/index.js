@@ -1,13 +1,14 @@
 let $ = document.querySelector.bind(document); 
 let $$ = document.querySelectorAll.bind(document);
 let CountPlay = 0; 
+let OverRule = $('.overdisplay');
 let number = 0; 
 let numBox = $$(".boxNum");
 let Music = $('.music');
 let moneyWrapper = $(".money"); 
 let playBtn = $('.playBtn');
 let count = 0; 
-let money = 100000; 
+let money = 0; 
 let Numarr = []; 
 
 const app = {
@@ -29,11 +30,8 @@ const app = {
             CountPlay = 0; 
         }
 
-        if (RandomValue <= 0.000001 ){
+        if (RandomValue <= 0.0000000000001 ){
             return 7; 
-        }
-        else if (RandomValue > 0.1 && RandomValue <= 0.7 ){
-            return 4; 
         }
         else {
             return Math.floor(Math.random() * 10); 
@@ -99,7 +97,19 @@ setTimeout (()=> {
         this.disPlay(); 
         this.handle();
       
-        
+    window.onload = function(){
+        setTimeout(()=> {
+            OverRule.style.display = 'flex'; 
+
+            setTimeout (()=> {
+                OverRule.style.display = 'none';
+              }, 7000)
+          }, 1000);
+
+         
+    
+    }
+      
         
         
     }
